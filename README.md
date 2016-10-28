@@ -63,7 +63,7 @@ An account is needed to download COSMIC VCF files - see https://cancer.sanger.ac
 perl bin/cosmic_format_index.pl  [ coding VCF.gz file ]  [ non-coding VCF.gz file ] [ output file ]
 ```
 	
-Download dbSNP from NCBI (included):
+Download dbSNP from NCBI:
 
 ```s
 wget ftp://ftp.ncbi.nlm.nih.gov/snp/organisms/human_9606/VCF/00-All.vcf.gz
