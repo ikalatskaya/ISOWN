@@ -47,7 +47,9 @@ Go to a directory where ISOWN will be stored.  Clone ISOWN from GitHub and then 
 ```s
 git clone https://github.com/ikalatskaya/ISOWN
 
-cd ISOWN; ISOWN_HOME=`pwd`
+cd ISOWN
+
+SOWN_HOME=`pwd`
 ```
  
 #### Format and index databases needed to run ISOWN
