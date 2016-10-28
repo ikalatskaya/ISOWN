@@ -15,7 +15,7 @@ The following dependencies are needed to run ISOWN:
 * Weka 
 
 ### EXTERNAL DATABASES
-The following external databases are required - the numbers in brackets are the versions used in the publication.
+The following external databases are required - the numbers in brackets are the versions tested and used and in the publication.
 * COSMIC (v69)
 * dbSNP (v142)
 * ExAC (release 0.3)
