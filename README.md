@@ -73,7 +73,7 @@ Reformat and index dbSNP using the following script:
 perl bin/ncbi_dbSNP_format_index.pl  00-All.vcf.gz 00-All.modified.vcf 
 ```
 
-Download ExAC from Broad Institute (included)
+Download ExAC from Broad Institute
 
 ```s
 wget ftp://ftp.broadinstitute.org/pub/ExAC_release/current/ExAC.r0.3.1.sites.vep.vcf.gz
@@ -85,7 +85,7 @@ Reformat and index ExAC using the following script:
 perl bin/exac_format_index.pl ExAC.r0.3.1.sites.vep.vcf.gz ExAC.r0.3.1.database.vcf
 ```
 		
-Download PolyPhen WHESS (included)
+Download PolyPhen WHESS
 
 ```s
 wget ftp://genetics.bwh.harvard.edu/pph2/whess/polyphen-2.2.2-whess-2011_12.tab.tar.bz2
