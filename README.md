@@ -18,7 +18,7 @@ The following dependencies are needed to run ISOWN:
 The following external databases are required - the numbers in brackets are the versions tested and used and in the publication.  External databases must be stored in 'external_databases' directory.
 * COSMIC (v69)
 * dbSNP (v142)
-* ExAC (release 0.3)
+* ExAC (release 2)
 * PolyPhen WHESS (released in 2015)
 * Mutation Assessor (released in 2013)  
 
@@ -49,7 +49,7 @@ git clone https://github.com/ikalatskaya/ISOWN
 
 cd ISOWN
 
-SOWN_HOME=`pwd`
+ISOWN_HOME=`pwd`
 ```
  
 #### Format and index databases needed to run ISOWN
@@ -60,7 +60,7 @@ Download both COSMIC CosmicCodingMuts.vcf.gz and CosmicNonCodingVariants.vcf.gz 
 An account is needed to download COSMIC VCF files - see https://cancer.sanger.ac.uk/cosmic/register.  Once downloaded, run the following script to combine coding and non-coding VCF files into a single file, re-format the newly created file, and index it with tabix: 
 
 ```s
-perl bin/cosmic_format_index.pl  [ coding VCF.gz file ]  [ non-coding VCF.gz file ] [ output file ]
+perl ${ISOWN_HOME}/bin/cosmic_format_index.pl  [ coding VCF.gz file ]  [ non-coding VCF.gz file ] [ output file ]
 ```
 	
 Download dbSNP from NCBI:
@@ -72,7 +72,7 @@ wget ftp://ftp.ncbi.nlm.nih.gov/snp/organisms/human_9606/VCF/00-All.vcf.gz
 Reformat and index dbSNP using the following script:
 
 ```s
-perl bin/ncbi_dbSNP_format_index.pl  00-All.vcf.gz 00-All.modified.vcf 
+perl ${ISOWN_HOME}/bin/ncbi_dbSNP_format_index.pl  00-All.vcf.gz 00-All.modified.vcf 
 ```
 
 Download ExAC from Broad Institute
@@ -84,7 +84,7 @@ wget ftp://ftp.broadinstitute.org/pub/ExAC_release/current/ExAC.r0.3.1.sites.vep
 Reformat and index ExAC using the following script:
 
 ```s
-perl bin/exac_format_index.pl ExAC.r0.3.1.sites.vep.vcf.gz ExAC.r0.3.1.database.vcf
+perl ${ISOWN_HOME}/bin/exac_format_index.pl ExAC.r0.3.1.sites.vep.vcf.gz ExAC.r0.3.1.database.vcf
 ```
 		
 Download PolyPhen WHESS
@@ -99,7 +99,7 @@ tar jxvf polyphen-2.2.2-whess-2011_12.tab.tar.bz2
 ```
 Reformat and index PolyPhen WHESS by using the following script:
 ```s
-perl bin/polyphen-whess_format_index.pl polyphen-2.2.2-whess-2011_12  PolyPhen-WHESS
+perl ${ISOWN_HOME}/bin/polyphen-whess_format_index.pl polyphen-2.2.2-whess-2011_12  PolyPhen-WHESS
 ```
 
 
@@ -109,6 +109,10 @@ NOTE:  this may take a few hours as PolyPhen WHESS database contained annotation
 
 Download Mutation Accessor from http://mutationassessor.org/
 
+```$
+wget http://mutationassessor.org/r2/MA.scores.hg19.tar.bz2
+```
+
 Uncompress
 ```s
 tar xvfz MA.scores.hg19.tar.bz2
@@ -116,7 +120,7 @@ tar xvfz MA.scores.hg19.tar.bz2
 Reformat and index Mutation Assessor by using the following script:
 
 ```s
-perl bin/mutation_accessor_format_index.pl  MA.hg19 2013_12_11_MA.vcf  
+perl ${ISOWN_HOME}/bin/mutation-assessor_format_index_vcf.pl MA.hg19 2013_12_11_MA.vcf  
 ```
 	
 ### RUNNING SOMATIC PREDICTIONS
@@ -182,8 +186,11 @@ perl ${ISOWN_HOME}/bin/run_isown.pl ./ test.output.txt " -trainingSet ${ISOWN_HO
 
 where
 
-    trainingSet PATH is the path to where the training file in ARFF format.  There are six training sets generated based on 100 randomly selected samples from BRCA, ESCA, KIRC, ESCA, COAD and UCEC that are in ${ISOWN_HOME}/training_data
-sanityCheck step is justified in the paper and represents a filtering of all predicted somatic mutations with sample frequency > 10%. Not applicable for single samples.  Classifier is by default NBC, user can change it to LADTree. Recommended for pancreatic datasets (and maybe other low mutational frequency cancer sets).
+   trainingSet PATH is the path to where the training file in ARFF format.  There are six training sets generated based on 100 randomly selected samples from BRCA, ESCA, KIRC, ESCA, COAD and UCEC that are in ${ISOWN_HOME}/training_data
+   
+   sanityCheck step is justified in the paper and represents a filtering of all predicted somatic mutations with sample frequency > 10%. Not applicable for single samples.  
+
+   Classifier is by default NBC, user can change it to LADTree. Recommended for pancreatic datasets (and maybe other low mutational frequency cancer sets).
 
 
 ### Output file description:
