@@ -72,13 +72,13 @@ wget ftp://ftp.ncbi.nlm.nih.gov/snp/organisms/human_9606/VCF/00-All.vcf.gz
 Reformat and index dbSNP using the following script:
 
 ```s
-perl ${ISOWN_HOME}/bin/ncbi_dbSNP_format_index.pl  00-All.vcf.gz 00-All.modified.vcf 
+perl ${ISOWN_HOME}/bin/ncbi_dbSNP_format_index.pl  00-All.vcf.gz 00-All.modified.vcf --no-passive-ftp
 ```
 
 Download ExAC from Broad Institute
 
 ```s
-wget ftp://ftp.broadinstitute.org/pub/ExAC_release/current/ExAC.r0.3.1.sites.vep.vcf.gz
+wget ftp://ftp.broadinstitute.org/pub/ExAC_release/current/ExAC.r0.3.1.sites.vep.vcf.gz --no-passive-ftp
 ```
 
 Reformat and index ExAC using the following script:
