@@ -15,7 +15,7 @@ The following dependencies are needed to run ISOWN:
 * Weka 
 
 ### EXTERNAL DATABASES
-The following external databases are required - the numbers in brackets are the versions used in the publication.
+The following external databases are required - the numbers in brackets are the versions tested and used and in the publication.  External databases must be stored in 'external_databases' directory.
 * COSMIC (v69)
 * dbSNP (v142)
 * ExAC (release 0.3)
@@ -47,7 +47,9 @@ Go to a directory where ISOWN will be stored.  Clone ISOWN from GitHub and then 
 ```s
 git clone https://github.com/ikalatskaya/ISOWN
 
-cd ISOWN; ISOWN_HOME=`pwd`
+cd ISOWN
+
+SOWN_HOME=`pwd`
 ```
  
 #### Format and index databases needed to run ISOWN
@@ -61,7 +63,7 @@ An account is needed to download COSMIC VCF files - see https://cancer.sanger.ac
 perl bin/cosmic_format_index.pl  [ coding VCF.gz file ]  [ non-coding VCF.gz file ] [ output file ]
 ```
 	
-Download dbSNP from NCBI (included):
+Download dbSNP from NCBI:
 
 ```s
 wget ftp://ftp.ncbi.nlm.nih.gov/snp/organisms/human_9606/VCF/00-All.vcf.gz
@@ -73,7 +75,7 @@ Reformat and index dbSNP using the following script:
 perl bin/ncbi_dbSNP_format_index.pl  00-All.vcf.gz 00-All.modified.vcf 
 ```
 
-Download ExAC from Broad Institute (included)
+Download ExAC from Broad Institute
 
 ```s
 wget ftp://ftp.broadinstitute.org/pub/ExAC_release/current/ExAC.r0.3.1.sites.vep.vcf.gz
@@ -85,7 +87,7 @@ Reformat and index ExAC using the following script:
 perl bin/exac_format_index.pl ExAC.r0.3.1.sites.vep.vcf.gz ExAC.r0.3.1.database.vcf
 ```
 		
-Download PolyPhen WHESS (included)
+Download PolyPhen WHESS
 
 ```s
 wget ftp://genetics.bwh.harvard.edu/pph2/whess/polyphen-2.2.2-whess-2011_12.tab.tar.bz2
@@ -105,7 +107,7 @@ perl bin/polyphen-whess_format_index.pl polyphen-2.2.2-whess-2011_12  PolyPhen-W
 NOTE:  this may take a few hours as PolyPhen WHESS database contained annotations for the whole human exome space.
 
 
-Download Mutation Accessor (included) from http://mutationassessor.org/
+Download Mutation Accessor from http://mutationassessor.org/
 
 Uncompress
 ```s
