@@ -12,7 +12,7 @@ The following dependencies are needed to run ISOWN:
 * Java 1.8 ( at least 4GB of RAM is needed )
 * Perl 
 * Tabix
-* Weka 
+* Weka ( http://www.cs.waikato.ac.nz/ml/weka/downloading.html )
 
 ### EXTERNAL DATABASES
 The following external databases are required - the numbers in brackets are the versions tested and used and in the publication.  External databases must be stored in 'external_databases' directory.
