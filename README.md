@@ -66,13 +66,13 @@ perl ${ISOWN_HOME}/bin/cosmic_format_index.pl  [ coding VCF.gz file ]  [ non-cod
 Download dbSNP from NCBI:
 
 ```s
-wget ftp://ftp.ncbi.nlm.nih.gov/snp/organisms/human_9606/VCF/00-All.vcf.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/snp/organisms/human_9606/VCF/00-All.vcf.gz --no-passive-ftp
 ```
 
 Reformat and index dbSNP using the following script:
 
 ```s
-perl ${ISOWN_HOME}/bin/ncbi_dbSNP_format_index.pl  00-All.vcf.gz 00-All.modified.vcf --no-passive-ftp
+perl ${ISOWN_HOME}/bin/ncbi_dbSNP_format_index.pl  00-All.vcf.gz 00-All.modified.vcf 
 ```
 
 Download ExAC from Broad Institute
@@ -90,7 +90,7 @@ perl ${ISOWN_HOME}/bin/exac_format_index.pl ExAC.r0.3.1.sites.vep.vcf.gz ExAC.r0
 Download PolyPhen WHESS
 
 ```s
-wget ftp://genetics.bwh.harvard.edu/pph2/whess/polyphen-2.2.2-whess-2011_12.tab.tar.bz2
+wget ftp://genetics.bwh.harvard.edu/pph2/whess/polyphen-2.2.2-whess-2011_12.tab.tar.bz2 --no-passive-ftp
 ```
 Uncompress the downloaded tar.gz2
 
@@ -110,7 +110,7 @@ NOTE:  this may take a few hours as PolyPhen WHESS database contained annotation
 Download Mutation Accessor from http://mutationassessor.org/
 
 ```$
-wget http://mutationassessor.org/r2/MA.scores.hg19.tar.bz2
+wget http://mutationassessor.org/r2/MA.scores.hg19.tar.bz2 --no-passive-ftp
 ```
 
 Uncompress
