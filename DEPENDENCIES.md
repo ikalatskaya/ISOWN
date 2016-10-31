@@ -22,4 +22,13 @@ export PATH=$PATH:/path_to_tabix/tabix-0.2.5
 ```
 
 ## weka (TBD)
+Download weka and uncompress
+```$
+wget https://sourceforge.net/projects/weka/files/weka-3-6/3.6.13/weka-3-6-13.zip
 
+unzip weka-3-6-13.zip
+```
+Copy weka.jar into bin ${ISOWN_HOME}/bin
+```$
+weka-3-6-13/weka.jar  ${ISOWN_HOME}/bin
+```
