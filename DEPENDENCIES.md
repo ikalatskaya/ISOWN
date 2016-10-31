@@ -5,7 +5,7 @@ The following describe how to install external tools for ISOWN.
 ## tabix
 Download and uncompress tabix
 ```$
-wget https://sourceforge.net/projects/samtools/files/tabix/tabix-0.2.5.tar.bz2
+wget https://sourceforge.net/projects/samtools/files/tabix/tabix-0.2.5.tar.bz2 --no-check-certificate
 
 tar xvjf tabix-0.2.5.tar.bz2
 ```
