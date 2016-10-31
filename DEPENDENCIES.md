@@ -21,7 +21,7 @@ Once compiled, add tabix to PATH ( where _path_to_tabix_ is the folder directory
 export PATH=$PATH:/path_to_tabix/tabix-0.2.5
 ```
 
-## weka (TBD)
+## weka 
 Download weka and uncompress it
 ```$
 wget https://sourceforge.net/projects/weka/files/weka-3-6/3.6.13/weka-3-6-13.zip
