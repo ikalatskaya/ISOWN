@@ -21,7 +21,7 @@ foreach my $t (0 .. $#tools) {
 		}
 	}
 	if ($foundTool == 0) {
-		print "$tool_name does not exist or not in the path!  Please install $tool_name  ...\n\n";
+		print "$tool_name does not exist or not in the path!  Please install $tool_name or make sure it is in the path!\n\n";
 	}
 }
 print "\n\n";
