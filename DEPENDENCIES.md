@@ -2,9 +2,6 @@
 
 The following describe how to install external tools for ISOWN. 
 
-
-## java (TBD)
-
 ## tabix
 Download and uncompress tabix
 ```$
@@ -24,4 +21,5 @@ Once compiled, add tabix to PATH ( where _path_to_tabix_ is the folder directory
 export PATH=$PATH:/path_to_tabix/tabix-0.2.5
 ```
 
+## weka (TBD)
 
