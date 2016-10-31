@@ -52,7 +52,12 @@ cd ISOWN
 
 ISOWN_HOME=`pwd`
 ```
- 
+
+Check to make sure you have all the external dependencies before running ISOWN:
+```$
+perl ${ISOWN_HOME}/bin/check_dependencies.pl 
+```
+
 #### Format and index databases needed to run ISOWN
 
 These following steps are only needed to be done once or only when a new database is available.  Each database must be converted and indexed with tabix ( http://www.htslib.org/doc/tabix.html ).  
