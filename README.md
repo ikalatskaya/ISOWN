@@ -55,7 +55,7 @@ ISOWN_HOME=`pwd`
  
 #### Format and index databases needed to run ISOWN
 
-These following steps are only needed to be done once or only when a new database is available.   Most of these databases are included in ISOWN except for COSMIC ( see below on where to download COSMIC and how format and index COSMIC for ISOWN.  Each database must be converted and indexed with tabix ( http://www.htslib.org/doc/tabix.html ).  
+These following steps are only needed to be done once or only when a new database is available.  Each database must be converted and indexed with tabix ( http://www.htslib.org/doc/tabix.html ).  
 
 Download both COSMIC CosmicCodingMuts.vcf.gz and CosmicNonCodingVariants.vcf.gz files from http://cancer.sanger.ac.uk/cosmic/download.
 An account is needed to download COSMIC VCF files - see https://cancer.sanger.ac.uk/cosmic/register.  Once downloaded, run the following script to combine coding and non-coding VCF files into a single file, re-format the newly created file, and index it with tabix: 
