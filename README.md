@@ -14,7 +14,7 @@ The following dependencies are needed to run ISOWN:
 * Tabix
 * Weka ( http://www.cs.waikato.ac.nz/ml/weka/downloading.html )
 
-Make sure these are installed and they are included on your PATH.
+Make sure these are installed and their executables are included in your PATH.
 
 ### EXTERNAL DATABASES
 The following external databases are required - the numbers in brackets are the versions tested and used and in the publication.  These external databases must be stored in 'external_databases' directory.
