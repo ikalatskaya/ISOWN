@@ -32,7 +32,7 @@ Copy weka.jar into bin ${ISOWN_HOME}/bin
 ```$
 cp weka-3-6-13/weka.jar  ${ISOWN_HOME}/bin
 ```
-
+## Check dependencies
 Run the following command to check to make sure all dependencies are installed:
 ```$
 perl ${ISOWN_HOME}/bin/check_dependencies.pl 
