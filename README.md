@@ -14,8 +14,10 @@ The following dependencies are needed to run ISOWN:
 * Tabix
 * Weka ( http://www.cs.waikato.ac.nz/ml/weka/downloading.html )
 
+Make sure these are installed and they are included on your PATH.
+
 ### EXTERNAL DATABASES
-The following external databases are required - the numbers in brackets are the versions tested and used and in the publication.  External databases must be stored in 'external_databases' directory.
+The following external databases are required - the numbers in brackets are the versions tested and used and in the publication.  These external databases must be stored in 'external_databases' directory.
 * COSMIC (v69)
 * dbSNP (v142)
 * ExAC (release 2)
@@ -40,8 +42,7 @@ We recommend the following pre-processing of VCF files before running ISOWN pred
 * Remove all variants with less than 10x coverage for whole exome sequencing or less than 50x coverage for targeted sequencing.
  
 ### INSTALLATION INSTRUCTIONS:
-ISOWN is designed to be a stand alone command line application.  Almost all of the dependences are included except for a few where we can not make them available due to licensing or agreements required by the data providers - for example COSMIC VCF database.  Instructions on how to obtained these are in the next section.  ISOWN is available for cloning from GitHub ( https://github.com/ikalatskaya/ISOWN ).
-
+ISOWN is designed to be a stand alone command line application.  Unfortunately, we can not make some external databases included with ISOWN distribution due to licensing or agreements required by the data providers - for example COSMIC VCF database.  Below are instructions on where and how to download and index external databases to be used with ISOWN.  
 
 Go to a directory where ISOWN will be stored.  Clone ISOWN from GitHub and then set ISOWN environment variable to point to where ISWON is
 ```s
