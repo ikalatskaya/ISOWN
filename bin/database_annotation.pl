@@ -12,7 +12,7 @@ my $cwd = dirname($0);
 
 # databases to annotate against to 
 my $REF="$cwd/../external_databases/hg19_random.fa";
-my $dbSNP_142="$cwd/../external_databases/AdbSNP142_All_20141124.vcf.gz.modified.vcf.gz";
+my $dbSNP_142="$cwd/../external_databases/dbSNP142_All_20141124.vcf.gz.modified.vcf.gz";
 my $COSMIC_69="$cwd/../external_databases/COSMIC_v69.vcf.gz";
 my $ExAC="$cwd/../external_databases/ExAC.r0.3.sites.vep.vcf.20150421.vcf.gz";
 my $MA="$cwd/../external_databases/MA.release2.vcf.gz";
