@@ -12,7 +12,7 @@ my $cwd = dirname($0);
 
 # databases to annotate against to 
 my $REF="$cwd/../external_databases/hg19_random.fa";
-my $dbSNP_142="$cwd/../external_databases/dbSNP142_All_20141124.vcf.gz.modified.vcf.gz";
+my $dbSNP_142="$cwd/../external_databases/AdbSNP142_All_20141124.vcf.gz.modified.vcf.gz";
 my $COSMIC_69="$cwd/../external_databases/COSMIC_v69.vcf.gz";
 my $ExAC="$cwd/../external_databases/ExAC.r0.3.sites.vep.vcf.20150421.vcf.gz";
 my $MA="$cwd/../external_databases/MA.release2.vcf.gz";
@@ -32,16 +32,27 @@ if ( @ARGV != 2 ) {
 my ($inputFile) = $ARGV[0];
 my ($finalOutputFile) = $ARGV[1];
 #$finalOutputFile = $inputFile; $finalOutputFile =~ s/.vcf/.final.isown.annotated.vcf/;
+my $outputFile; 
+if (-e  "$cwd/annovar_annotation.pl") {
+	print "\n\nannotating input file with ANNOVAR ...";
+	$outputFile = $finalOutputFile . ".temp.annovar.vcf";
+	system "perl $cwd/annovar_annotation.pl $inputFile $outputFile";
+} else {
+	print "\n\nANNOVAR is not found.  Please make sure ANNOVAR is installed in external_tools and try again \n";
+	exit 1;
+}
 
-print "\n\nannotating input file with ANNOVAR ...";
-my $outputFile = $finalOutputFile . ".temp.annovar.vcf";
-system "perl $cwd/annovar_annotation.pl $inputFile $outputFile";
 
-
-print "\n\nannotating input file with dbSNP ...";
-$inputFile = $outputFile;
-my $outputFile = $finalOutputFile . ".temp.dbSNP.vcf";
-system "perl $cwd/annotation.pl $inputFile $dbSNP_142 dbSNP142_All_20141124 $outputFile $REF";
+if (-e  $dbSNP_142) {
+	print "\n\nannotating input file with dbSNP ...";
+	$inputFile = $outputFile;
+	my $outputFile = $finalOutputFile . ".temp.dbSNP.vcf";
+	system "perl $cwd/annotation.pl $inputFile $dbSNP_142 dbSNP142_All_20141124 $outputFile $REF";
+} else {
+	print "\n\nThe dbSNP 142 file is not found.  Please correct the path in $0 and try again - see path below:\n";
+	print "\n\t$dbSNP_142\n\n"; 
+	exit 1;
+}
 
 
 print "\n\nannotating input file with COSMIC ...";
@@ -91,9 +102,6 @@ system "$cwd/qpipeline_internal tabix -m 9503 -i $inputFile > $outputFile";
 $inputFile = $outputFile;
 $outputFile = $finalOutputFile;
 system "perl $cwd/remove_normal_samples.pl $inputFile > $outputFile";
-#system "cat $inputFile | grep \"^#\" > $outputFile";
-#system "cat $inputFile | grep -v \"^#\" | grep -v ^NORMAL >> $outputFile";
-#system "cat $inputFile | grep -v \"^#\" | awk '\$1 !~ /_R_/' >> $outputFile";
 
 
 # cleanup 
