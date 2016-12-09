@@ -108,7 +108,7 @@ my $filePatternToRemove = $finalOutputFile . "*.temp.*";
 print "\n\ncleanup: deleting temporary files ( $filePatternToRemove ) ...\n\n";
 # sleep 10 seconds just in case there are delayed in file system etc.
 system "sleep 10";
-#system "rm $filePatternToRemove ";
+system "rm $filePatternToRemove ";
 
 
 
