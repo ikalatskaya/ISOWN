@@ -43,10 +43,10 @@ if (-e  "$cwd/annovar_annotation.pl") {
 }
 
 
-if (-e  $dbSNP_142) {
+if (-e  "$dbSNP_142") {
 	print "\n\nannotating input file with dbSNP ...";
 	$inputFile = $outputFile;
-	my $outputFile = $finalOutputFile . ".temp.dbSNP.vcf";
+	$outputFile = $finalOutputFile . ".temp.dbSNP.vcf";
 	system "perl $cwd/annotation.pl $inputFile $dbSNP_142 dbSNP142_All_20141124 $outputFile $REF";
 } else {
 	print "\n\nThe dbSNP 142 file is not found.  Please correct the path in $0 and try again - see path below:\n";
@@ -59,7 +59,6 @@ print "\n\nannotating input file with COSMIC ...";
 $inputFile = $outputFile;
 $outputFile = $finalOutputFile . ".temp.cosmic.vcf";
 system "perl $cwd/annotation.pl $inputFile $COSMIC_69  COSMIC_69 $outputFile $REF";
-
 
 print "\n\nannotating input file with ExAC ...";
 $inputFile = $outputFile;
@@ -109,7 +108,7 @@ my $filePatternToRemove = $finalOutputFile . "*.temp.*";
 print "\n\ncleanup: deleting temporary files ( $filePatternToRemove ) ...\n\n";
 # sleep 10 seconds just in case there are delayed in file system etc.
 system "sleep 10";
-system "rm $filePatternToRemove ";
+#system "rm $filePatternToRemove ";
 
 
 
