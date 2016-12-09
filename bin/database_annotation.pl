@@ -43,7 +43,7 @@ if (-e  "$cwd/annovar_annotation.pl") {
 }
 
 
-if (-e  $dbSNP_142) {
+if (-e  "$dbSNP_142") {
 	print "\n\nannotating input file with dbSNP ...";
 	$inputFile = $outputFile;
 	my $outputFile = $finalOutputFile . ".temp.dbSNP.vcf";
