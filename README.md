@@ -53,7 +53,7 @@ cd ISOWN
 ISOWN_HOME=`pwd`
 ```
 
-Follow instructions on how to install ISOWN dependencies [here] (DEPENDENCIES.md).  Then check to make sure you have all the external dependencies before running ISOWN:
+Follow instructions on how to install ISOWN dependencies from [here](https://github.com/ikalatskaya/ISOWN/blob/master/DEPENDENCIES.md).  Then check to make sure you have all the external dependencies before running ISOWN:
 ```$
 perl ${ISOWN_HOME}/bin/check_dependencies.pl 
 ```
