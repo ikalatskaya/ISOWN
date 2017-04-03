@@ -7,7 +7,7 @@ use File::Basename;
 
 use strict;
 
-my @tools = ("java", "tabix", "weka.jar");
+my @tools = ("git", "wget", "bzip2", "java", "tabix", "weka.jar");
 my $tool_path = '';
 my $foundTool;
 my $printHeader = 1;
