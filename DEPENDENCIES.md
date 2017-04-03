@@ -32,6 +32,17 @@ Copy weka.jar into bin ${ISOWN_HOME}/bin
 ```$
 cp weka-3-6-13/weka.jar  ${ISOWN_HOME}/bin
 ```
+
+## ANNOVAR
+Download ANNOVAR from http://annovar.openbioinformatics.org/en/latest/user-guide/download/ and uncompress it.  Note: ANNOVAR requires user registration.
+```$
+tar xvf annovar.latest.tar.gz
+```
+Add ANNOVAR to PATH 
+```$
+export PATH=$PATH:/path_to_annovar
+```
+
 ## Check dependencies
 Run the following command to check to make sure all dependencies are installed:
 ```$

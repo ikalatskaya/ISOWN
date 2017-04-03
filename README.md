@@ -14,7 +14,7 @@ The following dependencies are needed to run ISOWN:
 * Tabix
 * Weka ( http://www.cs.waikato.ac.nz/ml/weka/downloading.html )
 
-Make sure these are installed and their executables are included in your PATH. Instructions on how to these dependencies are [here](DEPENDENCIES.md)
+See INSTALLATION INSTRUCTIONS section below on how to install these dependencies.
 
 ### EXTERNAL DATABASES
 The following external databases are required - the numbers in brackets are the versions tested and used and in the publication.  These external databases must be stored in 'external_databases' directory.
@@ -44,6 +44,8 @@ We recommend the following pre-processing of VCF files before running ISOWN pred
 ### INSTALLATION INSTRUCTIONS:
 ISOWN is designed to be a stand alone command line application.  Unfortunately, we can not make some external databases included with ISOWN distribution due to licensing or agreements required by the data providers - for example COSMIC VCF database.  Below are instructions on where and how to download and index external databases to be used with ISOWN.  
 
+ISOWN requires the following system utilities: wget, git, bzip2, and tar.  Check and make sure these are installed on your systems.
+
 Go to a directory where ISOWN will be stored.  Clone ISOWN from GitHub and then set ISOWN environment variable to point to where ISWON is
 ```s
 git clone https://github.com/ikalatskaya/ISOWN
@@ -53,7 +55,7 @@ cd ISOWN
 ISOWN_HOME=`pwd`
 ```
 
-Check to make sure you have all the external dependencies before running ISOWN:
+Follow instructions on how to install ISOWN dependencies from [here](https://github.com/ikalatskaya/ISOWN/blob/master/DEPENDENCIES.md).  Then check to make sure you have all the external dependencies before running ISOWN:
 ```$
 perl ${ISOWN_HOME}/bin/check_dependencies.pl 
 ```
