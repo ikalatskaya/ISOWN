@@ -12,6 +12,7 @@ The following dependencies are needed to run ISOWN:
 * Java 1.8 ( at least 8GB of RAM is needed )
 * Perl 
 * Tabix
+* ANNOVAR ( http://annovar.openbioinformatics.org/en/latest/ )
 * Weka ( http://www.cs.waikato.ac.nz/ml/weka/downloading.html )
 
 See INSTALLATION INSTRUCTIONS section below on how to install these dependencies.
