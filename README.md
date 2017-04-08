@@ -131,7 +131,25 @@ Reformat and index Mutation Assessor by using the following script:
 ```s
 perl ${ISOWN_HOME}/bin/mutation-assessor_format_index_vcf.pl MA.hg19 2013_12_11_MA.vcf  
 ```
-	
+
+Download hg19 assembly from UCSC ( http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/ ) 
+
+```
+# create a directory called hg19_random in  ${ISOWN_HOME}/external_database.  CHange in hg19_random - this is 
+# where hg19 chromsomes will be stored
+mkdir hg19_random; cd hg19_random
+
+# download all hg19 chromosomes
+wget --timestamping  'ftp://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/*fa.gz' --no-passive-ftp`
+
+# unzip all files
+bunzip *
+
+# create hg19_random.fa and save it one directory up ( i.e.,  ${ISOWN_HOME}/external_databases )
+cat *.fa > ../hg19_random.fa 
+```
+
+
 ### RUNNING SOMATIC PREDICTIONS
 The following steps describe how to run ISOWN.  Create a test directory in ISOWN to store out output files.
 
