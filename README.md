@@ -17,7 +17,7 @@ The following dependencies are needed to run ISOWN:
 See INSTALLATION INSTRUCTIONS section below on how to install these dependencies.
 
 ### EXTERNAL DATABASES
-The following external databases are required - the numbers in brackets are the versions tested and used and in the publication.  These external databases must be stored in 'external_databases' directory.
+The following external databases are required - the numbers in brackets are the versions tested and used and in the publication.  These external databases must be stored in 'external_databases' directory ( estimated ~ 30Gb of diskspace is needed ).
 * COSMIC (v69)
 * dbSNP (v142)
 * ExAC (release 2)
