@@ -43,5 +43,9 @@ if (not defined $outputVCFFile) {
 	  exit ;
 }
 
-system "$cwd/qpipeline tabix -m 2020 -d $vcfDatabase -A -E -p $vcfDatabasePrefix -i $inputVCFFile  -f $referenceFile > $outputVCFFile"
+my $command = "$cwd/qpipeline tabix -m 2020 -d $vcfDatabase -A -E -p $vcfDatabasePrefix -i $inputVCFFile  -f $referenceFile > $outputVCFFile";
+
+print "\n\n$command";
+
+system "$command";
 
