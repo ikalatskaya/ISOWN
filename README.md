@@ -11,7 +11,7 @@ ISOWN is a supervised machine learning algorithm for predicting somatic mutation
 The following dependencies are needed to run ISOWN:
 * Java 1.8 ( at least 8GB of RAM is needed )
 * Perl 
-* Tabix
+* Tabix (  http://www.htslib.org/doc/tabix.html )
 * ANNOVAR ( http://annovar.openbioinformatics.org/en/latest/ )
 * Weka ( http://www.cs.waikato.ac.nz/ml/weka/downloading.html )
 
