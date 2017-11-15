@@ -49,7 +49,7 @@ printf "\n\nCreating $OUTPUT_FILE ... ";
 system "cat ${INPUT_DIR}/*.vcf | sort -k1,1 -k2,2n > ${OUTPUT_FILE}";
 
 printf "\n\nCompressing $OUTPUT_FILE ... ";
-system "bgzip $OUTPUT_FILE  ; tabix -s 1 -b 2 -e 3 ${OUTPUT_FILE}.gz";
+system "bgzip $OUTPUT_FILE  ; tabix -p vcf ${OUTPUT_FILE}.gz";
 
 
 printf "\n\nCleaning up ...\n\n";
