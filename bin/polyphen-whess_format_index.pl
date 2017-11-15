@@ -61,7 +61,7 @@ system "head -1 _tmp.txt | cut -f 2- | awk '{ print \"#chr\tstart\tend\t\"\$0 }'
 system "cat _tmp.txt | grep -v transcript | sed 's/:/\t/' | awk '{ print \$1\"\t\"\$2\"\t\"\$2\"\t\"\$0 }' | cut -f 1-3,6- | sort -k1,1 -k2,2n -k3,3n >> $OUTPUT_FILE ";
 
 printf "\n\nCompressing $OUTPUT_FILE ...";
-system "bgzip $OUTPUT_FILE  ; tabix -s 1 -b 2 -e 3 ${OUTPUT_FILE}.gz";
+system "bgzip $OUTPUT_FILE  ; tabix -p vcf ${OUTPUT_FILE}.gz";
 
 
 printf "\n\nCleaning up ...\n\n";
