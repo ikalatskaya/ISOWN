@@ -116,7 +116,7 @@ perl ${ISOWN_HOME}/bin/polyphen-whess_format_index.pl polyphen-2.2.2-whess-2011_
 NOTE:  this may take a few hours as PolyPhen WHESS database contained annotations for the whole human exome space.
 
 
-Download Mutation Accessor from http://mutationassessor.org/
+Download Mutation Accessor from http://mutationassessor.org/v1/
 
 ```$
 wget http://mutationassessor.org/r2/MA.scores.hg19.tar.bz2 --no-passive-ftp
