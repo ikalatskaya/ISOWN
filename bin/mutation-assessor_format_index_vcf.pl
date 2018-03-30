@@ -4,17 +4,6 @@ use strict;
 use warnings;
 use File::Basename;
 
-=head 
-
-wget http://mutationassessor.org/r2/MA.scores.hg19.tar.bz2
-
-
-tar xvfz MA.scores.hg19.tar.bz2
-
-cat MA.hg19/*.txt | grep -v Mutation | awk -F "\t" '{ print $1"\tRefGenome variant="$2";Gene="$3";Uniprot="$4";Info="$5";Uniprot variant="$6";Func. Impact="$7";FI score="$8 }' | tr ',' '\t' | cut -f 2- | awk '{ print "chr"$0 }' | awk '{ print $1"\t"$2"\t.\t"$3"\t"$4"\t.\t.\t"$0 }' | cut -f 1-7,12- > MA.release2.vcf
-
-
-=cut 
 
 sub usage {
 	print "\nUsage: " . basename($0) . " [ INPUT-DIR ] [ OUTPUT-VCF-FILE ]";
@@ -40,9 +29,13 @@ while (my $file = readdir(DIR)) {
 	my $f = "${INPUT_DIR}/$file";
 
 	printf "\n\nReformatting $f to VCF format  ...";
-	system "cat $f | grep -v Mutation |  awk -F \"\t\" '{ print \$1\"\tRefGenome variant=\"\$2\";Gene=\"\$3\";Uniprot=\"\$4\";Info=\"\$5\";Uniprot variant=\"\$6\";Func. Impact=\"\$7\";FI score=\"\$8 }'  | tr ',' '\t' | cut -f 2- | awk '{ print \"chr\"\$0 }' | awk '{ print \$1\"\t\"\$2\"\t.\t\"\$3\"\t\"\$4\"\t.\t.\t\"\$0 }' | cut -f 1-7,12- > ${f}.vcf "
-}
+	# command for release 1
+	#system "cat $f | grep -v Mutation |  awk -F \"\t\" '{ print \$1\"\tRefGenome variant=\"\$2\";Gene=\"\$3\";Uniprot=\"\$4\";Info=\"\$5\";Uniprot variant=\"\$6\";Func. Impact=\"\$7\";FI score=\"\$8 }'  | tr ',' '\t' | cut -f 2- | awk '{ print \"chr\"\$0 }' | awk '{ print \$1\"\t\"\$2\"\t.\t\"\$3\"\t\"\$4\"\t.\t.\t\"\$0 }' | cut -f 1-7,12- > ${f}.vcf "
 
+	# command for release 3 report by 
+	system "cat $f | grep -v Mutation | sed 's/\"//g' | sed 's/hg19,//' | tr ',' '\t' | awk -F\"\t\" '{ print \"chr\"\$1\"\t\"\$2\"\t.\t\"\$3\"\t\"\$4\"\t.\t.\tRefGenome variant=\"\$5\";Gene=\"\$6\";Uniprot=\"\$7\";Info=\"\$8\";Uniprot variant=\"\$9\";Func. Impact=\"\$10\";FI score=\"\$11 }' > ${f}.vcf" ;
+
+}
 closedir(DIR);
 
 printf "\n\nCreating $OUTPUT_FILE ... ";
