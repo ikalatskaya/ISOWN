@@ -7,16 +7,6 @@ use File::Spec;
 use File::Basename;
 use Cwd 'abs_path';
 
-=head
-
-module load java/1.8.0_45
-
-cd /.mounts/labs/bartlettlab/public/users/qtrinh/irina.pipeline/test.run
-
-perl ../bin/run_isown.pl . AAAA.out.txt " -trainingSet ../bin/data/training/BRCA_50_TrainSet.arff -sanityCheck false"
-
-=cut 
-
 
 # directory of where this script is called
 my $cwd = dirname($0);
