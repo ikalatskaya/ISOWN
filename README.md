@@ -120,6 +120,13 @@ Download Mutation Accessor from http://mutationassessor.org/v1/
 
 ```$
 wget http://mutationassessor.org/r2/MA.scores.hg19.tar.bz2 --no-passive-ftp
+
+if it doesn't work try:
+
+wget http://mutationassessor.org/r3/MA_scores_rel3_swissprot_full.tar.gz --no-passive-ftp
+
+
+
 ```
 
 Uncompress
