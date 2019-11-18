@@ -147,7 +147,7 @@ Download hg19 assembly from UCSC ( http://hgdownload.soe.ucsc.edu/goldenPath/hg1
 mkdir hg19_random; cd hg19_random
 
 # download all hg19 chromosomes
-wget --timestamping  'ftp://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/*fa.gz' --no-passive-ftp`
+wget --timestamping  'ftp://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/*fa.gz' --no-passive-ftp
 
 # unzip all files
 bunzip *
